@@ -15,8 +15,8 @@ import matplotlib.pyplot as plt
 #% matplotlib inline
 
 # insert the location of the images
-puzzle_address = 'Convention.jpg'
-waldo_address = 'Wally.png'
+puzzle_address = 'pics/Convention.jpg'
+waldo_address = 'pics/Wally.png'
 
 # load the puzzle and waldo images
 puzzle = cv2.imread(puzzle_address)
@@ -54,19 +54,19 @@ puzzle = cv2.addWeighted(puzzle, 0.25, mask, 0.75, 0)
 puzzle[topLeft[1] : botRight[1], topLeft[0] : botRight[0]] = roi
 
 # display the images
-cv2.imwrite("Puzzle_Result.jpg", puzzle)
+cv2.imwrite("pics/Puzzle_Result.jpg", puzzle)
 result_rgb = cv2.cvtColor(puzzle, cv2.COLOR_RGB2BGR)
 plt.figure(figsize = (15, 15))
 plt.imshow(result_rgb)
 
 # new Waldo Problem
-waldo2 = cv2.imread('waldo_books_dim.jpg')
+waldo2 = cv2.imread('pics/waldo_books_dim.jpg')
 waldoRGB2 = cv2.cvtColor(waldo2, cv2.COLOR_BGR2RGB)
 plt.figure(figsize = (3, 3))
 plt.imshow(waldoRGB2)
 
 # use zoo image as the large puzzle
-puzzle2 = cv2.imread('waldo_zoo.jpg')
+puzzle2 = cv2.imread('pics/waldo_zoo.jpg')
 puzzleRGB2 = cv2.cvtColor(puzzle2, cv2.COLOR_BGR2RGB)
 plt.figure(figsize = (15, 15))
 plt.imshow(puzzleRGB2)
@@ -108,7 +108,7 @@ mask = np.zeros(puzzle2.shape, dtype = "uint8")
 puzzle2 = cv2.addWeighted(puzzle2, 0.25, mask, 0.75, 0)
 puzzle2[topLeft[1]:botRight[1], topLeft[0]:botRight[0]] = roi
 # create new file to show where he was
-cv2.imwrite("found.jpg", puzzle2)
+cv2.imwrite("pics/found.jpg", puzzle2)
 result_rgb = cv2.cvtColor(puzzle2, cv2.COLOR_RGB2BGR)
 # also show in console
 plt.figure(figsize = (15,15))
